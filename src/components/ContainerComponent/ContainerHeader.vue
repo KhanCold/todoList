@@ -16,7 +16,8 @@ export default {
     methods:{
       addTodo(){
         //新增一个代办
-        this.insertTodo(this.title)
+        if(this.title == '') return ;//防止插入为空
+        this.insertTodo(this.title.trim())
         //清空输入框中内容
         this.title=''
       }
