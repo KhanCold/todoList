@@ -1,8 +1,8 @@
 <template>
   <div class="outside-container">
-    <container-header :insertTodo="insertTodo"/>
-    <container-body :todoList="todoList" :deleteTodo="deleteTodo" :mood="mood"/>
-    <container-footer class="container-footer" :activeCnt="activeCnt" :mood="mood" :changeMood="changeMood" :clearCompleted="clearCompleted"/>
+    <container-header/>
+    <container-body :todoList="todoList" :mood="mood"/>
+    <container-footer class="container-footer" :activeCnt="activeCnt" :mood="mood"/>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import ContainerHeader from './ContainerComponent/ContainerHeader.vue'
 export default {
   components: { ContainerHeader,ContainerBody,ContainerFooter },
     name:'ContainerComponent',
-    props:['todoList', 'insertTodo', 'deleteTodo', 'activeCnt', 'mood', 'changeMood', 'clearCompleted']
+    props:['todoList', 'deleteTodo', 'activeCnt', 'mood', 'changeMood', 'clearCompleted']
 
 }
 </script>

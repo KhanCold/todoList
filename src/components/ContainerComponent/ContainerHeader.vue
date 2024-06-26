@@ -12,12 +12,11 @@ export default {
         title :''//input框内容
       }
     },
-    props:['insertTodo'],
     methods:{
       addTodo(){
         //新增一个代办
         if(this.title == '') return ;//防止插入为空
-        this.insertTodo(this.title.trim())
+        this.$bus.$emit('insertTodo', this.title.trim())
         //清空输入框中内容
         this.title=''
       }

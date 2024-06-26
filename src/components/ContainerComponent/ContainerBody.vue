@@ -15,7 +15,7 @@
 <script>
 export default {
     name:'HeaderComponent',
-    props:['todoList', 'deleteTodo', 'mood'],
+    props:['todoList', 'mood'],
     computed:{
       filTodoList(){//渲染的是这个，根据all active completed三个动态改变
         return this.todoList.filter((p) => {
@@ -35,7 +35,7 @@ export default {
       },
       //删除列表中的信息
       delTodo(d){
-        this.deleteTodo(d)
+        this.$bus.$emit('deleteTodo', d)
       },
       //双击时候切换成input框t
       toggleInput(t) {

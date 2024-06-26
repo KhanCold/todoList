@@ -14,7 +14,15 @@
 <script>
 export default {
     name:'HeaderComponent',
-    props:['activeCnt', 'mood', 'changeMood', 'clearCompleted'],
+    props:['activeCnt', 'mood'],
+    methods:{
+      changeMood(mood){
+        this.$bus.$emit('changeMood', mood)
+      },
+      clearCompleted(){
+        this.$bus.$emit('clearCompleted')
+      }
+    }
 }
 </script>
 

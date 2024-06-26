@@ -3,7 +3,7 @@
     <!-- 头部书签 todoList -->
     <header-component/>
     <!-- 中间的白色框  包含了三个子组件-->
-    <container-component :todoList="rawTodoList" :insertTodo="insertTodo" :deleteTodo="deleteTodo" :activeCnt="activeCnt" :mood="mood" :changeMood="changeMood" :clearCompleted="clearCompleted"/>
+    <container-component :todoList="rawTodoList" :activeCnt="activeCnt" :mood="mood" />
     <!-- 底部的footer，签名 -->
     <footer-conponent/>
   </div>
@@ -68,7 +68,19 @@ export default {
           localStorage.setItem('rawTodoList',JSON.stringify(value))
         }
       }
-    }
+    },
+    mounted(){
+      this.$bus.$on('insertTodo', this.insertTodo)
+      this.$bus.$on('deleteTodo', this.deleteTodo)
+      this.$bus.$on('changeMood', this.changeMood)
+      this.$bus.$on('clearCompleted', this.clearCompleted)
+    },
+    beforeDestroy() {
+      this.$bus.$off('insertTodo')
+      this.$bus.$off('deleteTodo')
+      this.$bus.$off('changeMood')
+      this.$bus.$off('clearCompleted')
+    },
 }
 </script>
 
