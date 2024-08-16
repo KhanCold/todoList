@@ -1,5 +1,7 @@
 # todolist
 
+![alt text](todolist.jpg)
+
 ## Project setup
 
 ```
